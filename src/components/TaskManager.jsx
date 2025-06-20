@@ -1,20 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 import Button from './Button';
 
 /**
- * Custom hook for managing tasks with localStorage persistence
+ * TaskManager component for managing tasks
  */
-const useLocalStorageTasks = () => {
-  // Initialize state from localStorage or with empty array
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem('tasks');
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
-
-  // Update localStorage when tasks change
-  useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+const TaskManager = () => {
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
+  const [newTaskText, setNewTaskText] = useState('');
+  const [filter, setFilter] = useState('all');
 
   // Add a new task
   const addTask = (text) => {
@@ -45,17 +39,6 @@ const useLocalStorageTasks = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  return { tasks, addTask, toggleTask, deleteTask };
-};
-
-/**
- * TaskManager component for managing tasks
- */
-const TaskManager = () => {
-  const { tasks, addTask, toggleTask, deleteTask } = useLocalStorageTasks();
-  const [newTaskText, setNewTaskText] = useState('');
-  const [filter, setFilter] = useState('all');
-
   // Filter tasks based on selected filter
   const filteredTasks = tasks.filter((task) => {
     if (filter === 'active') return !task.completed;
@@ -82,7 +65,7 @@ const TaskManager = () => {
             value={newTaskText}
             onChange={(e) => setNewTaskText(e.target.value)}
             placeholder="Add a new task..."
-            className="flex-grow px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600"
+            className="flex-grow px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
           />
           <Button type="submit" variant="primary">
             Add Task
@@ -125,7 +108,7 @@ const TaskManager = () => {
           filteredTasks.map((task) => (
             <li
               key={task.id}
-              className="flex items-center justify-between p-3 border rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 dark:border-gray-700"
+              className="flex items-center justify-between p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700"
             >
               <div className="flex items-center gap-3">
                 <input

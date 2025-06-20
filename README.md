@@ -1,71 +1,139 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19822618&assignment_repo_type=AssignmentRepo)
-# React.js and Tailwind CSS Assignment
+# PLP Task Manager - React.js Assignment
 
-This assignment focuses on building a responsive React application using JSX and Tailwind CSS, implementing component architecture, state management, hooks, and API integration.
+A modern, responsive React application built with Vite and Tailwind CSS, demonstrating component architecture, custom hooks, state management, and API integration.
 
-## Assignment Overview
+## Features Implemented
 
-You will:
-1. Set up a React project with Vite and Tailwind CSS
-2. Create reusable UI components
-3. Implement state management using React hooks
-4. Integrate with external APIs
-5. Style your application using Tailwind CSS
+### Reusable UI Components
+- **Button Component**: Multiple variants (primary, secondary, danger, success, warning) with different sizes
+- **Card Component**: Flexible container with title, subtitle, footer, and hover effects  
+- **Navbar Component**: Responsive navigation with theme toggle
+- **Footer Component**: Multi-column layout with links and resources
+- **TaskManager Component**: Complete task management with persistence
 
-## Getting Started
+### Custom Hooks
+- **useFetch**: Custom hook for API calls with loading states and error handling
+- **useLocalStorage**: Hook for localStorage integration with automatic sync
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install dependencies:
-   ```
-   npm install
-   ```
-4. Start the development server:
-   ```
-   npm run dev
-   ```
+### State Management
+- **useState**: For component-level state management
+- **useEffect**: For side effects and lifecycle management
+- **useContext**: For theme management (dark/light mode)
+- **Local Storage**: Persistent storage for tasks and theme preferences
 
-## Files Included
+### API Integration
+- **JSONPlaceholder API**: Fetches posts and users data
+- **Search Functionality**: Real-time search through posts
+- **Pagination**: Navigate through posts with page controls
+- **Error Handling**: Graceful error states with retry functionality
+- **Loading States**: Smooth loading indicators
 
-- `Week3-Assignment.md`: Detailed assignment instructions
-- Starter files for your React application:
-  - Basic project structure
-  - Pre-configured Tailwind CSS
-  - Sample component templates
+### Responsive Design
+- **Mobile-First**: Optimized for all screen sizes
+- **Dark/Light Theme**: Complete theme switching with persistence
+- **Tailwind CSS**: Modern utility-first styling
+- **Smooth Animations**: Transitions and hover effects
 
-## Requirements
+## Tech Stack
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Code editor (VS Code recommended)
+- React 18 - Component-based UI library
+- Vite - Fast build tool and development server
+- Tailwind CSS - Utility-first CSS framework
+- PropTypes - Runtime type checking for React props
+- JSONPlaceholder API - Fake REST API for testing
 
 ## Project Structure
 
 ```
 src/
 ├── components/       # Reusable UI components
-├── pages/           # Page components
-├── hooks/           # Custom React hooks
-├── context/         # React context providers
-├── api/             # API integration functions
-├── utils/           # Utility functions
-└── App.jsx          # Main application component
+│   ├── Button.jsx
+│   ├── Card.jsx
+│   ├── Footer.jsx
+│   ├── Navbar.jsx
+│   ├── PostList.jsx
+│   └── TaskManager.jsx
+├── pages/            # Page components
+├── hooks/            # Custom React hooks
+│   ├── useFetch.js
+│   └── useLocalStorage.js
+├── context/          # React Context providers
+│   └── ThemeContext.jsx
+├── api/              # API integration functions
+│   └── jsonPlaceholder.js
+├── utils/            # Utility functions
+├── App.jsx           # Main application component
+├── main.jsx          # Application entry point
+└── index.css         # Global styles with Tailwind
 ```
 
-## Submission
+## Getting Started
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-1. Complete all required components and features
-2. Implement proper state management with hooks
-3. Integrate with at least one external API
-4. Style your application with Tailwind CSS
-5. Deploy your application and add the URL to your README.md
+### Installation
 
-## Resources
+1. Clone the repository:
+```bash
+git clone https://github.com/PLP-MERN-Stack-Development/week-3-react-js-assignment-mose868.git
+cd week-3-react-js-assignment-mose868
+```
 
-- [React Documentation](https://react.dev/)
-- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
-- [Vite Documentation](https://vitejs.dev/guide/)
-- [React Router Documentation](https://reactrouter.com/) 
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+
+## Assignment Requirements Completed
+
+✅ Use existing Vite + React setup
+✅ Ensure Tailwind CSS is configured and working
+✅ Follow proper folder structure under src/
+✅ Implement at least 3 reusable UI components
+✅ Create at least 1 custom hook that fetches data
+✅ State management with React hooks (useState, useEffect, useContext)
+✅ External API integration and display fetched data
+✅ Tailwind CSS for styling (responsive design)
+✅ Updated README.md
+
+## Features Demo
+
+### Task Management
+- Add new tasks with enter key or button click
+- Mark tasks as complete/incomplete
+- Delete tasks
+- Filter tasks (All, Active, Completed)
+- Local storage persistence
+- Task counter and statistics
+
+### API Data Display
+- Fetch posts from JSONPlaceholder API
+- Display post details with author information
+- Real-time search functionality
+- Pagination with page controls
+- Loading spinners and error states
+- Responsive grid layout
+
+### Theme Management
+- Dark/Light mode toggle
+- Persistent theme preference
+- System theme detection
+- Smooth transitions between themes
+
+Built with React, Vite, and Tailwind CSS 
